@@ -3,25 +3,119 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+  --foreground: 0, 0, 0;
+  --background: 255, 255, 255;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  color: var(--foreground);
+  background: var(--background);
+  overflow-x: hidden;
 }
+
+/* Sidebar main styles */
+.sidebar-main::-webkit-scrollbar {
+  width: 1px;
+}
+.sidebar-main::-webkit-scrollbar-track {
+  background: inherit;
+}
+.sidebar-main::-webkit-scrollbar-thumb {
+  background: #383838;
+  border-radius: 15px;
+}
+/* Sidebar main styles end */
+
+/* Properties styles */
+.properties::-webkit-scrollbar {
+  width: 1px;
+}
+.properties::-webkit-scrollbar-track {
+  background: inherit;
+}
+.properties::-webkit-scrollbar-thumb {
+  background: #383838;
+  border-radius: 15px;
+}
+/* Properties styles end */
+
+/* Popup body styles */
+.popup-body::-webkit-scrollbar {
+  width: 1px;
+}
+.popup-body::-webkit-scrollbar-track {
+  background: inherit;
+}
+.popup-body::-webkit-scrollbar-thumb {
+  background: #383838;
+  border-radius: 15px;
+}
+/* Popup body styles end */
+
+/* Notification styles and animations start */
+.notification_container {
+  opacity: 0;
+  pointer-events: none;
+}
+.notification_container.display {
+  animation: display-message 0.35s ease-out forwards;
+  opacity: 1;
+  pointer-events: all;
+}
+.notification_container.hide {
+  animation: hide-message 0.35s ease-in forwards;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0s linear 0.35s;
+}
+
+@keyframes display-message {
+  0% {
+    right: -100%;
+  }
+  100% {
+    right: 2%;
+  }
+}
+
+@keyframes hide-message {
+  0% {
+    right: 2%;
+  }
+  100% {
+    right: -100%;
+  }
+}
+/* Notifications styles and animations end */
+
+/* Loader styles and animations */
+.bouncing-loader {
+  display: flex;
+  justify-content: center;
+}
+
+.bouncing-loader > div {
+  width: 12px;
+  height: 12px;
+  margin: 0px 4px;
+  border-radius: 50%;
+  background-color: #afafaf;
+  opacity: 1;
+  animation: bouncing-loader 0.6s infinite alternate;
+}
+
+@keyframes bouncing-loader {
+  to {
+    opacity: 0.1;
+    transform: translateY(-16px);
+  }
+}
+
+.bouncing-loader > div:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.bouncing-loader > div:nth-child(3) {
+  animation-delay: 0.4s;
+}
+/* Loader styles and animations end */
