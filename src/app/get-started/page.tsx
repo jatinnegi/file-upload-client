@@ -42,8 +42,8 @@ const GetStarted = () => {
 
     const uri =
       auth === "signup"
-        ? "https://api.chat-1337.com/auth/sign-up"
-        : "https://api.chat-1337.com/auth/sign-in";
+        ? "https://stackdrive-server.onrender.com/auth/sign-up"
+        : "https://stackdrive-server.onrender.com/auth/sign-in";
     const formBody =
       auth === "signup" ? body : { email: body.email, password: body.password };
 

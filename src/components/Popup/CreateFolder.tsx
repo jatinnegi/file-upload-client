@@ -68,7 +68,7 @@ const CreateFolder: React.FC = () => {
       const accessToken = localStorage.getItem("accessToken");
 
       const { data } = await axios.post(
-        "https://api.chat-1337.com/files/create",
+        "https://stackdrive-server.onrender.com/files/create",
         body,
         {
           headers: {

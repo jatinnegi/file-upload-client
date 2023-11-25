@@ -26,12 +26,16 @@ const Workspace: NextPage = () => {
 
       const {
         data: { files, folders },
-      } = await axios.post("https://api.chat-1337.com/files", body, {
-        headers: {
-          Authorization: `Bearer ${accessToken}`,
-          "Content-Type": "application/json",
-        },
-      });
+      } = await axios.post(
+        "https://stackdrive-server.onrender.com/files",
+        body,
+        {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+            "Content-Type": "application/json",
+          },
+        }
+      );
 
       if (!files && !folders) {
         setTimeout(() => {

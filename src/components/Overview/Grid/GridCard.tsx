@@ -53,8 +53,8 @@ const GridCard: React.FC<Props> = ({ active, target, handleEllipsisClick }) => {
 
     const uri =
       operation === "download"
-        ? "https://api.chat-1337.com/files/download"
-        : "https://api.chat-1337.com/files/delete";
+        ? "https://stackdrive-server.onrender.com/files/download"
+        : "https://stackdrive-server.onrender.com/files/delete";
 
     try {
       const { data } = await axios.post(

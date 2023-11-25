@@ -67,19 +67,18 @@ const Uploader: React.FC<Props> = ({
     singleUpload = false
   ) => {
     const formData = new FormData();
-
     uploadFiles.forEach((file: FileWithPath) => {
       formData.append(file.path || file.name, file);
     });
 
     try {
       const accessToken = localStorage.getItem("accessToken");
-      let path = workspacePath.replace(/\//g, "#");
+      let path = workspacePath.replace(/\//g, "*");
 
       const {
         data: { folders, files, filesFail, pathsFail, uploaded },
       } = await axios.post(
-        `https://api.chat-1337.com/files/upload?overwrite=${overwrite}&workspace=${path}`,
+        `https://stackdrive-server.onrender.com/files/upload?overwrite=${overwrite}&workspace=${path}`,
         formData,
         {
           headers: {

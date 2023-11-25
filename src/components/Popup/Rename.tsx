@@ -73,7 +73,7 @@ const Rename: React.FC = () => {
       const accessToken = localStorage.getItem("accessToken");
 
       const { data } = await axios.post(
-        "https://api.chat-1337.com/files/rename",
+        "https://stackdrive-server.onrender.com/files/rename",
         body,
         {
           headers: {
